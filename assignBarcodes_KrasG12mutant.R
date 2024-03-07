@@ -35,7 +35,8 @@ for (sample in SampleList){
 	fileName_codons = paste0( InDir,sample,"_codons.txt" )
 	if ((file.size(fileName_barcodes) > 0L) & (file.size(fileName_codons) > 0L) ){
 		barcodes = read.table(fileName_barcodes,header=F,stringsAsFactors=F)
-		codons = read.table(fileName_codons,header=F,stringsAsFactors=F)
+		codons = read.table(fileName_codons,header=F,stringsAsFactors=F,comment.char="")
+		codons = codons[2:nrow(codons),]
 		codons = codons[codons$V6!=".",c( "V1","V4","V8","V6","V9" )]
 		colnames(codons) = c( "read_name","chr","pos","sequenced_base","reference_base" )
 		colnames(barcodes) = c( "read_name","barcode" )
