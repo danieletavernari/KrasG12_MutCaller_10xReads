@@ -28,6 +28,8 @@ mutant_name_1 = "G12C" # only two mutations are supported for now. If you want t
 mutant_name_2 = "G12D"
 ###############
 
+g12_start = as.numeric(g12_start)
+g12_end = as.numeric(g12_end)
 SampleList = unlist(strsplit(SampleList,split=" "))
 for (sample in SampleList){
 	cat( "\n","Processing",sample,"...","\n" )
